@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstdarg>
+
+using namespace std;
+
+
+int sum (int count, ...) {
+va_list ap;
+int sum = 0;
+
+va_start (ap, count);
+
+
+for (int i = 0; i <count; i ++) {
+sum += va_arg (ap, int);
+}
+
+
+va_end (ap);
+
+return sum;
+}
+
+int main () {
+
+int sum1 = sum (3, 1, 2, 3);
+cout << "Сумма 3 чисел:" << sum1 << endl;
+
+int sum2 = sum (7, 1, 2, 3, 4, 5, 6, 7);
+cout << "Сумма 7 чисел:" << sum2 << endl;
+
+int sum3 = sum (11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+cout << "Сумма 11 чисел:" << sum3 << endl;
+
+return 0;
+}
